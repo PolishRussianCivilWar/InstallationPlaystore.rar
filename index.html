@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Breach - Hacked</title>
+    <style>
+        body {
+            background: black;
+            color: limegreen;
+            font-family: monospace;
+            overflow: hidden;
+            text-shadow: 0 0 5px limegreen;
+        }
+        #terminal {
+            width: 100vw;
+            height: 100vh;
+            padding: 20px;
+            white-space: pre-wrap;
+            font-size: 18px;
+        }
+        .glitch {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 255, 0, 0.1);
+            mix-blend-mode: difference;
+            pointer-events: none;
+            animation: glitchAnim 0.5s infinite;
+        }
+        @keyframes glitchAnim {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(5px, -5px); }
+            50% { transform: translate(-5px, 5px); }
+            75% { transform: translate(3px, -3px); }
+            100% { transform: translate(0, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal"></div>
+    <div class="glitch"></div>
+    
+    <script>
+        const terminal = document.getElementById('terminal');
+        const commands = [
+            "Initializing backdoor...",
+            "Bypassing firewall...",
+            "Accessing database...",
+            "Downloading sensitive files...",
+            "Encrypting system...",
+            "Injecting trojan...",
+            "Overriding admin privileges...",
+            "Establishing remote control...",
+            "Uploading payload...",
+            "System compromised!"
+        ];
+        
+        let index = 0;
+        function typeCommand() {
+            if (index < commands.length) {
+                terminal.innerHTML += "\n> " + commands[index];
+                index++;
+                setTimeout(typeCommand, Math.random() * 1500 + 500);
+            } else {
+                setTimeout(() => terminal.innerHTML += "\n\n[ SYSTEM LOCKED ]", 2000);
+            }
+        }
+        
+        setTimeout(typeCommand, 1000);
+        
+        // Fake lag and cursor shake
+        document.addEventListener("mousemove", (e) => {
+            document.body.style.cursor = "none";
+            setTimeout(() => {
+                document.body.style.cursor = "default";
+            }, Math.random() * 500);
+        });
+        
+        setInterval(() => {
+            window.scrollBy(0, Math.random() * 10);
+        }, 300);
+    </script>
+</body>
+</html>
