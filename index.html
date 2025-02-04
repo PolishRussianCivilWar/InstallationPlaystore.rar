@@ -64,6 +64,7 @@
                 setTimeout(typeCommand, Math.random() * 1500 + 500);
             } else {
                 setTimeout(() => terminal.innerHTML += "\n\n[ SYSTEM LOCKED ]", 2000);
+                triggerPopups();
             }
         }
         
@@ -80,6 +81,21 @@
         setInterval(() => {
             window.scrollBy(0, Math.random() * 10);
         }, 300);
+        
+        function triggerPopups() {
+            setInterval(() => {
+                alert("WARNING: Unauthorized access detected!");
+            }, 5000);
+            
+            setInterval(() => {
+                let popup = window.open("", "", "width=300,height=200");
+                if (popup) {
+                    popup.document.write("<h1 style='color:red; text-align:center;'>SYSTEM BREACH</h1>");
+                    popup.document.write("<p style='color:white; text-align:center;'>Files are being deleted...</p>");
+                    popup.document.body.style.background = "black";
+                }
+            }, 7000);
+        }
     </script>
 </body>
 </html>
